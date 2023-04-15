@@ -12,9 +12,6 @@ app.use("/cards", userCards);
 
 app.listen(PORT, () => {
   console.log("Enlace a server");
-  // console.log(BASE_PATH);
 });
 
-//!Proximo uso(not delate)
-// const path = require("path");
-// app.use(express.static(path.join(__dirname, "public")));
+
