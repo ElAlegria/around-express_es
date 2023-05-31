@@ -20,12 +20,20 @@ const getUsersId = (req, res) => {
     });
 };
 
-const postUser = (req, res) => {
-  console.log(req.body)
-  const { name, about, avatar } = req.body;
+ const postUser = (req,res) => {
+   const { name, about, avatar } = req.body;
 
   userModel
     .create({ name, about, avatar })
+    .then((user) => res.send({ data: user }))
+    .catch(() => {
+      res.status(500).send({ mensaje: "ocurrio un errore checalo" });
+    });
+};
+ const delateUser = (req,res) => {
+
+  userModel
+    .findByIdAndDelete({ name, about, avatar })
     .then((user) => res.send({ data: user }))
     .catch(() => {
       res.status(500).send({ mensaje: "ocurrio un errore checalo" });
