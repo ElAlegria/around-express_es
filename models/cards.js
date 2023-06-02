@@ -12,9 +12,9 @@ const cardsSchema = new mongoose.Schema({
     require: true,
     validate: {
       validator: function (v) {
-        return /https?:\/\/(www)?[\w._~:\/?%#[\]@!$&'()*+,;=-]+\/?/;
+        return /https?:\/\/(www)?[\w._~:\/?%#[\]@!$&'()*+,;=-]+\/?/.test(v);
       },
-      message: "Lo sentimos esta no un URL correcta",
+      message: "Lo sentimos esta no una URL correcta",
     },
   },
   owner: {
@@ -24,8 +24,8 @@ const cardsSchema = new mongoose.Schema({
   },
   likes: [
     {
-      type: mongoose.Schema.Types.Array,
-      default: field,
+      type: mongoose.Schema.Types.ObjectId,
+      default:[]
     },
   ],
   createAt: {
