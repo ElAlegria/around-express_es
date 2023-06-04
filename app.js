@@ -12,7 +12,7 @@ mongoose
   .catch((err) => console.log("error:", err));
 
 app.get("/", (req, res) => {
-  res.status(404).send({ message: "Recurso solicitado no encontrado" });
+  res.status(500).send({ message: "Recurso solicitado no encontrado" });
 });
 
 app.use(bodyParse.json({ extended: true }));
